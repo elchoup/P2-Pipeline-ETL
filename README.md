@@ -8,13 +8,13 @@ Guide d'utilisation pour le Projet 2 de la formation Python : P2-Pipeline-ETL
  - os
 
 
-Pour installer le projet : 
+Pour installer le projet
 
-    - Cloner le dépôt Github :
-    * git clone "https://github.com/elchoup/P2-Pipeline-ETL.git"
+    * Cloner le dépôt Github :
+     git clone "https://github.com/elchoup/P2-Pipeline-ETL.git"
     
-    - Creer votre environnement virtuel :
-    * python -m venv env
+    * Creer votre environnement virtuel :
+     python -m venv env
 
     - Activer votre environnement virtuel nouvellement créé : => env\scripts\activate (windows)
 
