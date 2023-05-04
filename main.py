@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup as bs
 import re
 import csv
 import os
-import re 
       
 # On crée une fonction pour récupérer le lien dans la balise a
 def infos(element):
@@ -144,17 +143,20 @@ def extraction_livre(url):
     return data
 
 def écriture_csv(data, categorie):
+    # Création d'un dossier livre
+    if not os.path.exists('bibliothèque'):
+        os.makedirs('bibliothèque')
     # Ouverture fichier csv en mode écriture dans en passant egalement l'argument categorie qui nous permettre de nommer le fichier csv
-        with open(f'{categorie}.csv', mode='w', newline='', encoding='utf-8') as fichier_csv:
-            # Création d'un objet Dictwriter pour ecrire dans le csv. fieldnames correspond aux noms des colonnes
-            writer = csv.DictWriter(fichier_csv, fieldnames=['Categorie', 'Url produit', 'Code produit', 'Titre', 'Prix taxe inclue', 'Prix taxe exclue', 'Disponible', 'Description', 'Note', 'Url image'] )
-            
-            # On recupère les noms des colonnes pour les mettre en en tête
-            writer.writeheader()
-            
-            # Pour chaque objet dans la liste on écrit les données dans le fichier csv
-            for row in data:
-                writer.writerow(row)
+    with open(f'bibliothèque/{categorie}.csv', mode='w', newline='', encoding='utf-8') as fichier_csv:
+        # Création d'un objet Dictwriter pour ecrire dans le csv. fieldnames correspond aux noms des colonnes
+        writer = csv.DictWriter(fichier_csv, fieldnames=['Categorie', 'Url produit', 'Code produit', 'Titre', 'Prix taxe inclue', 'Prix taxe exclue', 'Disponible', 'Description', 'Note', 'Url image'] )
+        
+        # On recupère les noms des colonnes pour les mettre en en tête
+        writer.writeheader()
+        
+        # Pour chaque objet dans la liste on écrit les données dans le fichier csv
+        for row in data:
+            writer.writerow(row)
 
 def main_action():
     

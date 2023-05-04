@@ -1,0 +1,5 @@
+requests
+beautifoulsoup4
+csv
+re
+os
